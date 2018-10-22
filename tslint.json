@@ -45,11 +45,9 @@
             false
         ],
         "one-line": [
-            false
+            true
         ],
-        "one-variable-per-declaration": [
-            false
-        ]
+        "prettier": true
     },
     "rulesDirectory": []
 }
