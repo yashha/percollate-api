@@ -19,8 +19,8 @@ const basePath = path.resolve(__dirname + '/../../cache');
 export class PercollateController implements OnModuleInit {
   constructor(private readonly percollateService: PercollateService) {}
 
-  @Get('api')
-  async get(
+  @Get('pdf')
+  async getPdf(
     @Res() response,
     @Req() request,
     @Query('url') urls,
@@ -34,8 +34,8 @@ export class PercollateController implements OnModuleInit {
     await this.percollateService.api(parsedUrls, options, response, request);
   }
 
-  @Post('api')
-  async post(
+  @Post('pdf')
+  async postPdf(
     @Res() response,
     @Req() request,
     @Param() params,
