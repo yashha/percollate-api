@@ -47,7 +47,9 @@
         "one-line": [
             true
         ],
-        "prettier": true
+        "no-console": [
+          false
+        ]
     },
     "rulesDirectory": []
 }
