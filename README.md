@@ -37,3 +37,12 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+
+## API
+
+- GET: /pdf
+  - Query: mutiple url queries possible  
+    other queries are other options of percollate
+- POST: /pdf
+  - Query: mutiple url queries possible  
+  - Params: other options of percollate
