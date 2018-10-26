@@ -22,7 +22,7 @@ export class PercollateService {
     const file = path.resolve(basePath, PercollateService.makeid() + '.pdf');
     await percollate.pdf(urls, {
       output: file,
-      sandbox: true,
+      sandbox: false,
       ...options,
     });
     await response.sendFile(file);
