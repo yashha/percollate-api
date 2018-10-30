@@ -5,6 +5,7 @@ import * as data from '../package-lock.json';
 export class AppService {
   root(): string {
     return `
+      <h1><a href="https://github.com/yashha/percollate-api">Percollate API</a></h1>
       <div>
         <p><a href="https://github.com/danburzo/percollate">Percollate</a> Version: ${data.dependencies.percollate.version}</p>
         <p>Examples: </p>
