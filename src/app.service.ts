@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import * as data from '../package.json';
+import * as data from '../package-lock.json';
 
 @Injectable()
 export class AppService {
   root(): string {
     return `
       <div>
-        <p>Percollate Version: ${data.dependencies.percollate}</p>
+        <p><a href="https://github.com/danburzo/percollate">Percollate</a> Version: ${data.dependencies.percollate.version}</p>
         <p>Examples: </p>
       </div>
       <ul>
