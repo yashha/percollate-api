@@ -20,6 +20,9 @@ export class PercollateService {
 
   async api(urls: string[], options: any, response, request) {
     const file = path.resolve(basePath, PercollateService.makeid() + '.pdf');
+
+    percollate.configure();
+
     await percollate.pdf(urls, {
       output: file,
       sandbox: false,
