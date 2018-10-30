@@ -4,6 +4,7 @@
     "declaration": false,
     "noImplicitAny": false,
     "removeComments": true,
+    "resolveJsonModule": true,
     "noLib": false,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
