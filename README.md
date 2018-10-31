@@ -1,6 +1,6 @@
 ## Description
 
-Public API to transform website content to pdf.
+Public API to transform website content to pdf using the [percollate package](https://github.com/danburzo/percollate) .
 
 ## Installation
 
