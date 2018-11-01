@@ -18,7 +18,7 @@ export class PercollateService {
     return text;
   }
 
-  async api(urls: string[], options: any, response, request) {
+  async pdf(urls: string[], options: any) {
     const file = path.resolve(basePath, PercollateService.makeid() + '.pdf');
 
     percollate.configure();
@@ -28,9 +28,10 @@ export class PercollateService {
       sandbox: false,
       ...options,
     });
-    await response.sendFile(file);
-    request.on('end', () => {
-      fs.unlinkSync(file);
-    });
+    return file;
+  }
+
+  async cleanup(file) {
+    fs.unlinkSync(file);
   }
 }

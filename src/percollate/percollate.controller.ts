@@ -31,7 +31,15 @@ export class PercollateController implements OnModuleInit {
     delete filteredQuery.output;
     const parsedUrls = Array.isArray(urls) ? urls : [urls];
 
-    await this.percollateService.api(parsedUrls, options, response, request);
+    const file = await this.percollateService.pdf(parsedUrls, options);
+    await this.handleRequest(file, response, request);
+  }
+
+  async handleRequest(file, response, request) {
+    await response.sendFile(file);
+    request.on('end', () => {
+      this.percollateService.cleanup(file);
+    });
   }
 
   @Post('pdf')
@@ -44,7 +52,8 @@ export class PercollateController implements OnModuleInit {
     const filteredParams = params;
     delete filteredParams.output;
 
-    await this.percollateService.api(urls, filteredParams, response, request);
+    const file = await this.percollateService.pdf(urls, filteredParams);
+    await this.handleRequest(file, response, request);
   }
 
   onModuleInit(): any {
