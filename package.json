@@ -5,10 +5,10 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write \"src/**/*.ts\"",
     "start": "node dist/src/main.js",
+    "format": "prettier --write \"src/**/*.ts\"",
     "start:ts-node": "ts-node -r tsconfig-paths/register src/main.ts",
-    "start:dev": "nodemon",
+    "dev": "nodemon",
     "start:debug": "nodemon --config nodemon-debug.json",
     "prestart:prod": "rimraf dist && tsc",
     "start:hmr": "node dist/server",
@@ -17,7 +17,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "webpack": "webpack --config webpack.config.js"
+    "webpack": "webpack --config webpack.config.js",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@nestjs/common": "^5.4.0",
@@ -30,10 +31,12 @@
     "percollate": "^0.3.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3",
-    "typescript": "^3.1.4"
+    "typescript": "^3.1.4",
+    "filenamify": "latest"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",
+    "@types/filenamify": "^2.0.1",
     "@types/jest": "^23.3.9",
     "@types/supertest": "^2.0.6",
     "jest": "^23.6.0",
