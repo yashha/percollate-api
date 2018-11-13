@@ -9,7 +9,10 @@ const basePath = path.resolve(__dirname + '/../../cache');
 @Injectable()
 export class PercollateService {
   async pdf(urls: string[], options: any) {
-    const file = path.resolve(basePath, filenamify(JSON.stringify(urls) + JSON.stringify(options)) + '.pdf');
+    const file = path.resolve(
+      basePath,
+      filenamify(JSON.stringify(urls) + JSON.stringify(options)) + '.pdf',
+    );
     if (fs.existsSync(file)) {
       return file;
     }
@@ -41,6 +44,6 @@ export class PercollateService {
     });
   }
   async cleanupOld() {
-    this.deleteFilesOlderThan(basePath, 60 * 60 * 1000)
+    this.deleteFilesOlderThan(basePath, 60 * 60 * 1000);
   }
 }
