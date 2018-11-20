@@ -43,7 +43,6 @@ export class PercollateService {
     const article = new Readability(document).parse();
     const metadata = {
       Title: article.title,
-      Author: article.author,
     };
 
     const ep = new exiftool.ExiftoolProcess(exiftoolBin);
