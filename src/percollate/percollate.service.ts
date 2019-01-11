@@ -13,10 +13,10 @@ const basePath = path.resolve(__dirname + '/../../cache');
 
 @Injectable()
 export class PercollateService {
-  async pdf(urls: string[], options: any) {
+  async run(urls: string[], method: string, options: any) {
     const file = path.resolve(
       basePath,
-      filenamify(JSON.stringify(urls) + JSON.stringify(options)) + '.pdf',
+      filenamify(JSON.stringify(urls) + JSON.stringify(options)) + '.' + method,
     );
     if (fs.existsSync(file)) {
       return file;
@@ -24,11 +24,29 @@ export class PercollateService {
 
     percollate.configure();
 
-    await percollate.pdf(urls, {
-      output: file,
-      sandbox: false,
-      ...options,
-    });
+    switch (method) {
+      case 'pdf':
+        await percollate.pdf(urls, {
+          output: file,
+          sandbox: false,
+          ...options,
+        });
+        break;
+      case 'epub':
+        await percollate.epub(urls, {
+          output: file,
+          sandbox: false,
+          ...options,
+        });
+        break;
+      case 'html':
+        await percollate.html(urls, {
+          output: file,
+          sandbox: false,
+          ...options,
+        });
+        break;
+    }
 
     if (urls.length > 0) {
       await this.addExif(urls[0], file);

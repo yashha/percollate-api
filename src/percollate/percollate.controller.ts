@@ -19,10 +19,11 @@ const basePath = path.resolve(__dirname + '/../../cache');
 export class PercollateController implements OnModuleInit {
   constructor(private readonly percollateService: PercollateService) {}
 
-  @Get('pdf')
-  async getPdf(
+  @Get(':method')
+  async get(
     @Res() response,
     @Req() request,
+    @Param('method') method,
     @Query('url') urls,
     @Query() options,
   ) {
@@ -31,7 +32,11 @@ export class PercollateController implements OnModuleInit {
     delete filteredQuery.output;
     const parsedUrls = Array.isArray(urls) ? urls : [urls];
 
-    const file = await this.percollateService.pdf(parsedUrls, options);
+    let file;
+    if (['pdf', 'epub', 'html'].indexOf(method) > -1) {
+      file = await this.percollateService.run(parsedUrls, method, options);
+    }
+
     await this.handleRequest(file, response, request);
   }
 
@@ -52,7 +57,7 @@ export class PercollateController implements OnModuleInit {
     const filteredParams = params;
     delete filteredParams.output;
 
-    const file = await this.percollateService.pdf(urls, filteredParams);
+    const file = await this.percollateService.run(urls, 'pdf', filteredParams);
     await this.handleRequest(file, response, request);
   }
 

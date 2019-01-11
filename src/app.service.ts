@@ -10,12 +10,20 @@ export class AppService {
         <p><a href="https://github.com/danburzo/percollate">Percollate</a> Version: ${
           data.dependencies.percollate.version
         }</p>
-        <p>Examples: </p>
       </div>
+      <p>Examples pdf: </p>
       <ul>
         <li><a href="/pdf?url=https://de.wikipedia.org/wiki/JavaScript">Wiki JavaScript</a></li>
         <li><a href="/pdf?url=https://de.wikipedia.org/wiki/JavaScript&css=html,body{width:100%;overflow:hidden;}">Wiki JavaScript better fontsize</a></li>
-        <li><a href="/pdf?url=https://de.wikipedia.org/wiki/JavaScript&url=https://de.wikipedia.org/wiki/Hypertext_Markup_Language&css=html{font-size:26px}&toc=true">Multiple Wiki pages with Table of contents
+        <li><a href="/pdf?url=https://de.wikipedia.org/wiki/JavaScript&url=https://de.wikipedia.org/wiki/Hypertext_Markup_Language&css=html{font-size:26px}&toc=true">Multiple Wiki pages with Table of contents</a></li>
+      </ul>
+      <p>Examples: epub </p>
+      <ul>
+        <li><a href="/epub?url=https://de.wikipedia.org/wiki/JavaScript">Wiki JavaScript</a></li>
+      </ul>
+      <p>Examples: html </p>
+      <ul>
+        <li><a href="/html?url=https://de.wikipedia.org/wiki/JavaScript">Wiki JavaScript</a></li>
       </ul>
     `;
   }
