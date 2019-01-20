@@ -6,6 +6,7 @@ import * as filenamify from 'filenamify';
 import * as Readability from 'readability';
 import * as exiftool from 'node-exiftool';
 import * as exiftoolBin from 'dist-exiftool';
+import * as TurndownService from 'turndown';
 import axios from 'axios';
 import { JSDOM } from 'jsdom';
 
@@ -44,6 +45,26 @@ export class PercollateService {
           output: file,
           sandbox: false,
           ...options,
+        });
+        break;
+      case 'md':
+        await percollate.html(urls, {
+          output: file,
+          sandbox: false,
+          ...options,
+        });
+        await new Promise((resolve, reject) => {
+          fs.readFile(file, (err, buf) => {
+            let html = buf.toString();
+            const turndownService = new TurndownService();
+            const markdown = turndownService.turndown(html);
+
+            fs.writeFile(file, markdown, err => {
+              if (err) console.log(err);
+              console.log('Successfully Written to File.');
+              resolve(file);
+            });
+          });
         });
         break;
     }

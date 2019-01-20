@@ -36,6 +36,7 @@
     "readability": "github:mozilla/readability",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.3.3",
+    "turndown": "^5.0.1",
     "typescript": "^3.2.2"
   },
   "devDependencies": {

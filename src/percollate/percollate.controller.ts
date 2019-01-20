@@ -33,7 +33,7 @@ export class PercollateController implements OnModuleInit {
     const parsedUrls = Array.isArray(urls) ? urls : [urls];
 
     let file;
-    if (['pdf', 'epub', 'html'].indexOf(method) > -1) {
+    if (['pdf', 'epub', 'html', 'md'].indexOf(method) > -1) {
       file = await this.percollateService.run(parsedUrls, method, options);
     }
 

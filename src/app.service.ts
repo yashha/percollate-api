@@ -25,6 +25,10 @@ export class AppService {
       <ul>
         <li><a href="/html?url=https://de.wikipedia.org/wiki/JavaScript">Wiki JavaScript</a></li>
       </ul>
+      <p>Examples: markdown </p>
+      <ul>
+        <li><a href="/md?url=https://de.wikipedia.org/wiki/JavaScript">Wiki JavaScript</a></li>
+      </ul>
     `;
   }
 }
