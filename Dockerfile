@@ -20,6 +20,7 @@ COPY . .
 
 RUN npm install
 RUN npm install puppeteer
+RUN npm run build
 EXPOSE 3000
 
 ENTRYPOINT ["dumb-init", "--"]
