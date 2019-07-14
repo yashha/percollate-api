@@ -17,7 +17,7 @@ export class PercollateService {
   async run(urls: string[], method: string, options: any) {
     const file = path.resolve(
       basePath,
-      filenamify(JSON.stringify(urls) + JSON.stringify(options)) + '.' + method,
+      filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: "" }) + "." + method
     );
     if (fs.existsSync(file)) {
       return file;
