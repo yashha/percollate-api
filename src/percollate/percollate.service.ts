@@ -20,7 +20,8 @@ export class PercollateService {
       filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: "" }) + "." + method
     );
     if (fs.existsSync(file)) {
-      return file;
+      const metadata = await this.addExif(urls[0], file);
+      return { file: file, title: metadata.Title };
     }
 
     percollate.configure();
@@ -70,10 +71,11 @@ export class PercollateService {
     }
 
     if (urls.length > 0) {
-      await this.addExif(urls[0], file);
+      const metadata = await this.addExif(urls[0], file);
+      return { file: file, title: metadata.Title };
     }
 
-    return file;
+    return { file: file };
   }
 
   async addExif(url: string, file: string) {
@@ -92,6 +94,7 @@ export class PercollateService {
     } catch (error) {
       console.log(error);
     }
+    return metadata;
   }
 
   deleteFilesOlderThan(directory: string, time: number) {

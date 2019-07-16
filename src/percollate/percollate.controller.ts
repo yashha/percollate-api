@@ -32,15 +32,14 @@ export class PercollateController implements OnModuleInit {
     delete filteredQuery.output;
     const parsedUrls = Array.isArray(urls) ? urls : [urls];
 
-    let file;
     if (['pdf', 'epub', 'html', 'md'].indexOf(method) > -1) {
-      file = await this.percollateService.run(parsedUrls, method, options);
+       const { file, title } = await this.percollateService.run(parsedUrls, method, options);
+      await this.handleRequest(file, title, method, response, request);
     }
-
-    await this.handleRequest(file, response, request);
   }
 
-  async handleRequest(file, response, request) {
+  async handleRequest(file, title, method,  response, request) {
+    response.set('Content-Disposition', 'inline; filename*=UTF-8\'\''+ encodeURI(title) +'.'+method);
     await response.sendFile(file);
     request.on('end', async () => {
       await this.percollateService.cleanupOld();
@@ -57,8 +56,8 @@ export class PercollateController implements OnModuleInit {
     const filteredParams = params;
     delete filteredParams.output;
 
-    const file = await this.percollateService.run(urls, 'pdf', filteredParams);
-    await this.handleRequest(file, response, request);
+    const { file, title } = await this.percollateService.run(urls, 'pdf', filteredParams);
+    await this.handleRequest(file, title, 'pdf', response, request);
   }
 
   onModuleInit(): any {
