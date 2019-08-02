@@ -46,20 +46,6 @@ export class PercollateController implements OnModuleInit {
     });
   }
 
-  @Post('pdf')
-  async postPdf(
-    @Res() response,
-    @Req() request,
-    @Param() params,
-    @Query('url') urls,
-  ) {
-    const filteredParams = params;
-    delete filteredParams.output;
-
-    const { file, title } = await this.percollateService.run(urls, 'pdf', filteredParams);
-    await this.handleRequest(file, title, 'pdf', response, request);
-  }
-
   onModuleInit(): any {
     makeDir(basePath);
   }
