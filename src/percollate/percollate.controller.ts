@@ -25,6 +25,7 @@ export class PercollateController implements OnModuleInit {
     @Req() request,
     @Param('method') method,
     @Query('url') urls,
+    @Query('pagesperside') pagesPerSide: number,
     @Query() options,
   ) {
     const filteredQuery = options;
@@ -33,7 +34,7 @@ export class PercollateController implements OnModuleInit {
     const parsedUrls = Array.isArray(urls) ? urls : [urls];
 
     if (['pdf', 'epub', 'html', 'md'].indexOf(method) > -1) {
-       const { file, title } = await this.percollateService.run(parsedUrls, method, options);
+       const { file, title } = await this.percollateService.run(parsedUrls, method, pagesPerSide, options);
       await this.handleRequest(file, title, method, response, request);
     }
   }

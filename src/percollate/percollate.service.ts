@@ -9,12 +9,14 @@ import * as exiftoolBin from 'dist-exiftool';
 import * as TurndownService from 'turndown';
 import axios from 'axios';
 import { JSDOM } from 'jsdom';
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 const basePath = path.resolve(__dirname + '/../../cache');
 
 @Injectable()
 export class PercollateService {
-  async run(urls: string[], method: string, options: any) {
+  async run(urls: string[], method: string, pagesPerSide: number, options: any) {
     const file = path.resolve(
       basePath,
       filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: "" }) + "." + method
@@ -70,12 +72,46 @@ export class PercollateService {
         break;
     }
 
+    await this.convertPagesPerSide(file, pagesPerSide);
     if (urls.length > 0) {
       const metadata = await this.addExif(urls[0], file);
       return { file: file, title: metadata.Title };
     }
 
     return { file: file };
+  }
+
+  async convertPagesPerSide(file, pages) {
+    const orientation = {
+      2: "landscape",
+      4: "portrait",
+      // 6: "landscape",
+      // 9: "portrait",
+      // 16: "portrait",
+    };
+
+    const mode = {
+      2: "2x1",
+      4: "2x2",
+      // 6: "3x2",
+      // 9: "3x3",
+      // 16: "4x4",
+    };
+
+    console.log(orientation[pages]);
+    console.log(mode[pages]);
+    if (orientation[pages] && mode[pages]) {
+      const noLandscape = orientation[pages] == 'portrait';
+      const nup = mode[pages];
+      await this.convertNup(file, nup, noLandscape)
+    }
+  }
+  async convertNup(file, nup="2x1", noLandscape=false) {
+    const noLandscapeAttribute = noLandscape ? '--no-landscape' : '';
+    const { stdout, stderr } = await exec(`pdfnup --nup ${nup} ${file} ${noLandscapeAttribute} --outfile ${file}`);
+    console.log(stdout);
+    console.log(stderr);
+    return file;
   }
 
   async addExif(url: string, file: string) {
