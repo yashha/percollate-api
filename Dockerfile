@@ -39,5 +39,8 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN node -v
 RUN npm -v
 
+RUN npm install
+RUN npm run build
+
 EXPOSE 3000
 CMD ["dumb-init", "npm", "start"]
