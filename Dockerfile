@@ -12,9 +12,6 @@ RUN apt-get install -y texlive-extra-utils
 RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64.deb
 RUN dpkg -i dumb-init_*.deb
 
-WORKDIR /app
-COPY . .
-
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ENV NVM_DIR /usr/local/nvm
@@ -39,8 +36,11 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN node -v
 RUN npm -v
 
+
+WORKDIR /app
+COPY . .
+
 RUN npm install
 RUN npm run build
-
 EXPOSE 3000
 CMD ["dumb-init", "npm", "start"]
