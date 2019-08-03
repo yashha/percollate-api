@@ -19,11 +19,11 @@ export class PercollateService {
   async run(urls: string[], method: string, pagesPerSide: number, options: any) {
     const file = path.resolve(
       basePath,
-      filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: "" }) + "." + method
+      filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: '' }) + '.' + method,
     );
     if (fs.existsSync(file)) {
       const metadata = await this.addExif(urls[0], file);
-      return { file: file, title: metadata.Title };
+      return { file, title: metadata.Title };
     }
 
     percollate.configure();
@@ -58,7 +58,7 @@ export class PercollateService {
         });
         await new Promise((resolve, reject) => {
           fs.readFile(file, (err, buf) => {
-            let html = buf.toString();
+            const html = buf.toString();
             const turndownService = new TurndownService();
             const markdown = turndownService.turndown(html);
 
@@ -75,24 +75,24 @@ export class PercollateService {
     await this.convertPagesPerSide(file, pagesPerSide);
     if (urls.length > 0) {
       const metadata = await this.addExif(urls[0], file);
-      return { file: file, title: metadata.Title };
+      return { file, title: metadata.Title };
     }
 
-    return { file: file };
+    return { file };
   }
 
   async convertPagesPerSide(file, pages) {
     const orientation = {
-      2: "landscape",
-      4: "portrait",
+      2: 'landscape',
+      4: 'portrait',
       // 6: "landscape",
       // 9: "portrait",
       // 16: "portrait",
     };
 
     const mode = {
-      2: "2x1",
-      4: "2x2",
+      2: '2x1',
+      4: '2x2',
       // 6: "3x2",
       // 9: "3x3",
       // 16: "4x4",
@@ -103,10 +103,10 @@ export class PercollateService {
     if (orientation[pages] && mode[pages]) {
       const noLandscape = orientation[pages] == 'portrait';
       const nup = mode[pages];
-      await this.convertNup(file, nup, noLandscape)
+      await this.convertNup(file, nup, noLandscape);
     }
   }
-  async convertNup(file, nup="2x1", noLandscape=false) {
+  async convertNup(file, nup= '2x1', noLandscape= false) {
     const noLandscapeAttribute = noLandscape ? '--no-landscape' : '';
     const { stdout, stderr } = await exec(`pdfnup --nup ${nup} ${file} ${noLandscapeAttribute} --outfile ${file}`);
     console.log(stdout);

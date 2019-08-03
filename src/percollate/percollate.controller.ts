@@ -35,7 +35,7 @@ export class PercollateController implements OnModuleInit {
 
     if (['pdf', 'epub', 'html', 'md'].indexOf(method) > -1) {
        const { file, title } = await this.percollateService.run(parsedUrls, method, pagesPerSide, options);
-      await this.handleRequest(file, title, method, response, request);
+       await this.handleRequest(file, title, method, response, request);
     }
   }
 
