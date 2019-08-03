@@ -13,6 +13,7 @@
     "prestart:prod": "rimraf dist && tsc",
     "start:hmr": "node dist/server",
     "lint": "tslint -p tsconfig.json -c tslint.json",
+    "lintfix": "tslint --fix -p tsconfig.json -c tslint.json",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -42,7 +43,6 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.0",
-    "@types/filenamify": "^2.0.2",
     "@types/jest": "^23.3.14",
     "@types/node": "^10.14.12",
     "@types/supertest": "^2.0.8",
@@ -75,7 +75,7 @@
     "testEnvironment": "node"
   },
   "engines": {
-    "node": "9.11.2",
+    "node": "10.16.1",
     "npm": "5.6.x"
   }
 }
