@@ -19,7 +19,7 @@ export class PercollateService {
   async run(urls: string[], method: string, pagesPerSide: number, options: any) {
     const file = path.resolve(
       basePath,
-      filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: '' }) + '.' + method,
+      filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: '' }) + pagesPerSide + '.' + method,
     );
     if (fs.existsSync(file)) {
       const metadata = await this.addExif(urls[0], file);
