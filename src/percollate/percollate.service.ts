@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as percollate from 'percollate';
-import * as filenamify from 'filenamify';
 import * as Readability from 'readability';
 import * as exiftool from 'node-exiftool';
 import * as exiftoolBin from 'dist-exiftool';
@@ -13,13 +12,17 @@ const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 
 const basePath = path.resolve(__dirname + '/../../cache');
+const uuidv5 = require('uuid/v5');
 
 @Injectable()
 export class PercollateService {
   async run(urls: string[], method: string, pagesPerSide: number, options: any) {
+
+    console.log(pagesPerSide);
+    const filename = uuidv5(JSON.stringify(urls) + JSON.stringify(options) + pagesPerSide, uuidv5.URL) + '.' + method;
     const file = path.resolve(
       basePath,
-      filenamify(JSON.stringify(urls) + JSON.stringify(options), { replacement: '' }) + pagesPerSide + '.' + method,
+      filename
     );
     if (fs.existsSync(file)) {
       const metadata = await this.addExif(urls[0], file);
