@@ -19,7 +19,7 @@ const basePath = path.resolve(__dirname + '/../../cache');
 export class PercollateController implements OnModuleInit {
   constructor(private readonly percollateService: PercollateService) {}
 
-  @Get(':method')
+  @Get('load.:method')
   async get(
     @Res() response,
     @Req() request,
