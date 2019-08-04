@@ -40,9 +40,6 @@ $ npm run test:cov
 
 ## API
 
-- GET: /pdf
-  - Query: mutiple url queries possible  
+- GET: /load.pdf
+  - Query: mutiple `url` queries possible  
     other queries are other options of percollate
-- POST: /pdf
-  - Query: mutiple url queries possible  
-  - Params: other options of percollate
