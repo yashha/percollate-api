@@ -1,5 +1,5 @@
 # Initially from here https://github.com/christopher-talke/node-express-puppeteer-pdf-example
-FROM debian:jessie
+FROM debian:jessie-slim
 
 RUN apt-get update && apt-get install wget -y
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
