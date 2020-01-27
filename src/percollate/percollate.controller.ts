@@ -7,6 +7,8 @@ import {
   Query,
   Req,
   Res,
+  HttpException,
+  HttpStatus,
 } from '@nestjs/common';
 import { PercollateService } from './percollate.service';
 
@@ -37,6 +39,7 @@ export class PercollateController implements OnModuleInit {
        const { file, title } = await this.percollateService.run(parsedUrls, method, pagesPerSide, options);
        await this.handleRequest(file, title, method, response, request);
     }
+    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
   }
 
   async handleRequest(file, title, method,  response, request) {
