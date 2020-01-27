@@ -66,6 +66,7 @@ export class PercollateService {
     }
 
     await this.convertPagesPerSide(file, pagesPerSide);
+
     if (urls.length > 0) {
       const metadata = await this.addExif(urls[0], file);
       return { file, title: metadata.Title };
