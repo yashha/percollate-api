@@ -10,7 +10,9 @@ import * as Readability from 'readability';
 import * as TurndownService from 'turndown';
 import * as util from 'util';
 import * as uuidv5 from 'uuid/v5';
-const exec = util.promisify(require('child_process').exec);
+import * as childProcess from 'child_process';
+
+const exec = util.promisify(childProcess.exec);
 
 const basePath = path.resolve(__dirname + '/../../cache');
 
@@ -149,7 +151,7 @@ export class PercollateService {
     this.deleteFilesOlderThan(basePath, 60 * 60 * 1000);
   }
 
-  async htmlFileToMarkdownFile(file) {
+  async htmlFileToMarkdownFile(file: string) {
     await new Promise((resolve, reject) => {
       fs.readFile(file, (err, buf) => {
         const html = buf.toString();
