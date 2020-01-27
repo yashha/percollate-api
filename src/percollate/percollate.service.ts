@@ -129,9 +129,9 @@ export class PercollateService {
   }
 
   deleteFilesOlderThan(directory: string, time: number) {
-    fs.readdir(directory, function(err, files) {
-      files.forEach(function(file, index) {
-        fs.stat(path.join(directory, file), function(err, stat) {
+    fs.readdir(directory, (err, files) => {
+      files.forEach((file, index) => {
+        fs.stat(path.join(directory, file), (err, stat) => {
           if (err) {
             return console.error(err);
           }
