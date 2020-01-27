@@ -1,19 +1,8 @@
-import {
-  Controller,
-  Get,
-  OnModuleInit,
-  Param,
-  Post,
-  Query,
-  Req,
-  Res,
-  HttpException,
-  HttpStatus,
-} from '@nestjs/common';
+import { Controller, Get, HttpException, HttpStatus, OnModuleInit, Param, Query, Req, Res } from '@nestjs/common';
+import * as makeDir from 'make-dir';
+import * as path from 'path';
 import { PercollateService } from './percollate.service';
 
-import * as path from 'path';
-import * as makeDir from 'make-dir';
 
 const basePath = path.resolve(__dirname + '/../../cache');
 
