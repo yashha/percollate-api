@@ -99,6 +99,7 @@ export class PercollateService {
       await this.convertNup(file, nup, noLandscape);
     }
   }
+
   async convertNup(file, nup= '2x1', noLandscape= false) {
     const noLandscapeAttribute = noLandscape ? '--no-landscape' : '';
     const { stdout, stderr } = await exec(`pdfnup --nup ${nup} ${file} ${noLandscapeAttribute} --outfile ${file}`);
@@ -142,7 +143,7 @@ export class PercollateService {
       });
     });
   }
-  
+
   async cleanupOld() {
     this.deleteFilesOlderThan(basePath, 60 * 60 * 1000);
   }
