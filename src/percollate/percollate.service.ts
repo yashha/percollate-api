@@ -160,7 +160,7 @@ export class PercollateService {
 
         fs.writeFile(file, markdown, writeFileError => {
           if (writeFileError) console.log(writeFileError);
-          console.log('Successfully Written to File.');
+          console.log('Successfully written markdown to file.');
           resolve(file);
         });
       });
