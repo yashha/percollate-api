@@ -13,10 +13,12 @@
     "target": "es6",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "typeRoots" : ["./node_modules/@types", "./typings"]
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "./typings"
   ],
   "exclude": [
     "node_modules",

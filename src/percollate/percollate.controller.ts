@@ -24,11 +24,15 @@ export class PercollateController implements OnModuleInit {
     delete filteredQuery.output;
     const parsedUrls = Array.isArray(urls) ? urls : [urls];
 
-    if (['pdf', 'epub', 'html', 'md'].indexOf(method) > -1) {
-       const { file, title } = await this.percollateService.run(parsedUrls, method, pagesPerSide, options);
-       await this.handleRequest(file, title, method, response, request);
+    try {
+      if (['pdf', 'epub', 'html', 'md'].indexOf(method) > -1) {
+        const { file, title } = await this.percollateService.run(parsedUrls, method, pagesPerSide, options);
+        await this.handleRequest(file, title, method, response, request);
+      }
+    } catch (error) {
+      console.error(error);
+      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
     }
-    throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
   }
 
   async handleRequest(file, title, method,  response, request) {
