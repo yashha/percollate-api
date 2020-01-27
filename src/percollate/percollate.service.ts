@@ -61,19 +61,7 @@ export class PercollateService {
           template: path.join(__dirname, './markdown-template.html'),
           ...options,
         });
-        await new Promise((resolve, reject) => {
-          fs.readFile(file, (err, buf) => {
-            const html = buf.toString();
-            const turndownService = new TurndownService();
-            const markdown = turndownService.turndown(html);
-
-            fs.writeFile(file, markdown, err => {
-              if (err) console.log(err);
-              console.log('Successfully Written to File.');
-              resolve(file);
-            });
-          });
-        });
+        await this.htmlFileToMarkdownFile(file);
         break;
     }
 
@@ -154,7 +142,24 @@ export class PercollateService {
       });
     });
   }
+  
   async cleanupOld() {
     this.deleteFilesOlderThan(basePath, 60 * 60 * 1000);
+  }
+
+  async htmlFileToMarkdownFile(file) {
+    await new Promise((resolve, reject) => {
+      fs.readFile(file, (err, buf) => {
+        const html = buf.toString();
+        const turndownService = new TurndownService();
+        const markdown = turndownService.turndown(html);
+
+        fs.writeFile(file, markdown, err => {
+          if (err) console.log(err);
+          console.log('Successfully Written to File.');
+          resolve(file);
+        });
+      });
+    });
   }
 }
