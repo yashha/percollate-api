@@ -22,7 +22,7 @@ export class PercollateService {
     const filename = uuidv5(JSON.stringify(urls) + JSON.stringify(options) + pagesPerSide, uuidv5.URL) + '.' + method;
     const file = path.resolve(
       basePath,
-      filename
+      filename,
     );
     if (fs.existsSync(file)) {
       const metadata = await this.addExif(urls[0], file);
