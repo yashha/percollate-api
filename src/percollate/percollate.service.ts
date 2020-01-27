@@ -95,7 +95,7 @@ export class PercollateService {
     console.log(orientation[pages]);
     console.log(mode[pages]);
     if (orientation[pages] && mode[pages]) {
-      const noLandscape = orientation[pages] == 'portrait';
+      const noLandscape = orientation[pages] === 'portrait';
       const nup = mode[pages];
       await this.convertNup(file, nup, noLandscape);
     }
