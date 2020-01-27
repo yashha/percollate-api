@@ -20,7 +20,7 @@ const basePath = path.resolve(__dirname + '/../../cache');
 export class PercollateService {
   async run(urls: string[], method: string, pagesPerSide: number, options: any) {
 
-    console.log(pagesPerSide);
+    console.log('Pages per side: ' + (pagesPerSide !== undefined ? pagesPerSide : 0));
     const filename = uuidv5(JSON.stringify(urls) + JSON.stringify(options) + pagesPerSide, uuidv5.URL) + '.' + method;
     const file = path.resolve(
       basePath,
