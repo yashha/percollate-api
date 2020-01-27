@@ -46,6 +46,7 @@ export class PercollateService {
         await percollate.epub(urls, {
           output: file,
           sandbox: false,
+          template: path.join(__dirname, './default-template.html'),
           ...options,
         });
         break;
@@ -53,6 +54,7 @@ export class PercollateService {
         await percollate.html(urls, {
           output: file,
           sandbox: false,
+          template: path.join(__dirname, './default-template.html'),
           ...options,
         });
         break;
