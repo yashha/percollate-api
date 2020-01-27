@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
+import axios from 'axios';
+import * as exiftoolBin from 'dist-exiftool';
 import * as fs from 'fs';
+import { JSDOM } from 'jsdom';
+import * as exiftool from 'node-exiftool';
 import * as path from 'path';
 import * as percollate from 'percollate';
 import * as Readability from 'readability';
-import * as exiftool from 'node-exiftool';
-import * as exiftoolBin from 'dist-exiftool';
 import * as TurndownService from 'turndown';
-import axios from 'axios';
-import { JSDOM } from 'jsdom';
 import * as util from 'util';
 const exec = util.promisify(require('child_process').exec);
 
