@@ -9,10 +9,10 @@ import * as percollate from 'percollate';
 import * as Readability from 'readability';
 import * as TurndownService from 'turndown';
 import * as util from 'util';
+import * as uuidv5 from 'uuid/v5';
 const exec = util.promisify(require('child_process').exec);
 
 const basePath = path.resolve(__dirname + '/../../cache');
-const uuidv5 = require('uuid/v5');
 
 @Injectable()
 export class PercollateService {
