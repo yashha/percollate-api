@@ -58,6 +58,7 @@ export class PercollateService {
         await percollate.html(urls, {
           output: file,
           sandbox: false,
+          template: path.join(__dirname, './markdown-template.html'),
           ...options,
         });
         await new Promise((resolve, reject) => {
