@@ -21,12 +21,12 @@
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {
-    "@nestjs/common": "^6.5.2",
-    "@nestjs/core": "^6.5.2",
-    "@nestjs/microservices": "^6.5.2",
-    "@nestjs/platform-express": "^6.5.2",
-    "@nestjs/testing": "^6.5.2",
-    "@nestjs/websockets": "^6.5.2",
+    "@nestjs/common": "^6.11.1",
+    "@nestjs/core": "^6.11.1",
+    "@nestjs/microservices": "^6.11.1",
+    "@nestjs/platform-express": "^6.11.1",
+    "@nestjs/testing": "^6.11.1",
+    "@nestjs/websockets": "^6.11.1",
     "axios": "^0.19.0",
     "dist-exiftool": "^10.53.0",
     "helmet": "^3.21.2",
@@ -38,7 +38,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.2",
     "turndown": "^5.0.3",
-    "typescript": "^3.5.3",
+    "typescript": "^3.7.5",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
