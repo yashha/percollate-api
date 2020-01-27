@@ -8,7 +8,7 @@ import * as exiftoolBin from 'dist-exiftool';
 import * as TurndownService from 'turndown';
 import axios from 'axios';
 import { JSDOM } from 'jsdom';
-const util = require('util');
+import * as util from 'util';
 const exec = util.promisify(require('child_process').exec);
 
 const basePath = path.resolve(__dirname + '/../../cache');
