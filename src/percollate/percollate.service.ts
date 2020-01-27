@@ -36,6 +36,7 @@ export class PercollateService {
         await percollate.pdf(urls, {
           output: file,
           sandbox: false,
+          template: path.join(__dirname, './default-template.html'),
           ...options,
         });
         break;
