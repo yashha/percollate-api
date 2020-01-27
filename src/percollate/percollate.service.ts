@@ -131,11 +131,11 @@ export class PercollateService {
   }
 
   deleteFilesOlderThan(directory: string, time: number) {
-    fs.readdir(directory, (err, files) => {
+    fs.readdir(directory, (readDirError, files) => {
       files.forEach((file, index) => {
-        fs.stat(path.join(directory, file), (err, stat) => {
-          if (err) {
-            return console.error(err);
+        fs.stat(path.join(directory, file), (statError, stat) => {
+          if (statError) {
+            return console.error(statError);
           }
           const now = new Date().getTime();
           const endTime = new Date(stat.ctime).getTime() + time;
@@ -153,13 +153,13 @@ export class PercollateService {
 
   async htmlFileToMarkdownFile(file: string) {
     await new Promise((resolve, reject) => {
-      fs.readFile(file, (err, buf) => {
+      fs.readFile(file, (readFileError, buf) => {
         const html = buf.toString();
         const turndownService = new TurndownService();
         const markdown = turndownService.turndown(html);
 
-        fs.writeFile(file, markdown, err => {
-          if (err) console.log(err);
+        fs.writeFile(file, markdown, writeFileError => {
+          if (writeFileError) console.log(writeFileError);
           console.log('Successfully Written to File.');
           resolve(file);
         });
