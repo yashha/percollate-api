@@ -77,7 +77,7 @@
     "testEnvironment": "node"
   },
   "engines": {
-    "node": "10.16.1",
-    "npm": "5.6.x"
+    "node": "13.x.x",
+    "npm": "6.x.x"
   }
 }

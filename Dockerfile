@@ -15,7 +15,7 @@ RUN dpkg -i dumb-init_*.deb
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 10.16.1
+ENV NODE_VERSION 13.7.0
 
 # install nvm
 # https://github.com/creationix/nvm#install-script
