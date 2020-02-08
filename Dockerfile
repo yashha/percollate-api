@@ -44,4 +44,4 @@ COPY . ./
 
 #parcel tsparcel tsRUN npm run build
 EXPOSE 3000
-CMD ["dumb-init", "npm", "run", "start:ts-node"]
+CMD ["dumb-init", "npm", "run", "start"]
