@@ -5,12 +5,7 @@ import * as data from '../package-lock.json';
 export class AppService {
   root(): string {
     return `
-      <h1><a href="https://github.com/yashha/percollate-api">Percollate API</a></h1>
-      <div>
-        <p><a href="https://github.com/danburzo/percollate">Percollate</a> Version: ${
-          data.dependencies.percollate.version
-        }</p>
-      </div>
+      <h1>Read the web API</h1>
       <p>Examples pdf: </p>
       <ul>
         <li><a href="/load.pdf?url=https://de.wikipedia.org/wiki/JavaScript">Wiki JavaScript</a></li>
