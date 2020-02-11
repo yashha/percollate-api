@@ -5,7 +5,7 @@ import * as fs from 'fs';
 import { JSDOM } from 'jsdom';
 import * as exiftool from 'node-exiftool';
 import * as path from 'path';
-import * as percollate from 'percollate';
+import * as percollate from 'percollate-fork';
 import * as Readability from 'readability';
 import * as TurndownService from 'turndown';
 import * as util from 'util';
