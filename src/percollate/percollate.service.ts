@@ -128,6 +128,8 @@ export class PercollateService {
       await ep.writeMetadata(file, metadata);
     } catch (error) {
       console.log(error);
+    } finally {
+      ep.close();
     }
     return metadata;
   }
