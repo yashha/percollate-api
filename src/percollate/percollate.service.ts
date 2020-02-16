@@ -59,13 +59,12 @@ export class PercollateService {
         });
         break;
       case 'md':
-        await percollate.html(urls, {
+        await percollate.md(urls, {
           output: file,
           sandbox: false,
           template: path.join(__dirname, './markdown-template.html'),
           ...options,
         });
-        await this.htmlFileToMarkdownFile(file);
         break;
     }
 
@@ -153,21 +152,5 @@ export class PercollateService {
 
   async cleanupOld() {
     this.deleteFilesOlderThan(basePath, 60 * 60 * 1000);
-  }
-
-  async htmlFileToMarkdownFile(file: string) {
-    await new Promise((resolve, reject) => {
-      fs.readFile(file, (readFileError, buf) => {
-        const html = buf.toString();
-        const turndownService = new TurndownService();
-        const markdown = turndownService.turndown(html);
-
-        fs.writeFile(file, markdown, writeFileError => {
-          if (writeFileError) console.log(writeFileError);
-          console.log('Successfully written markdown to file.');
-          resolve(file);
-        });
-      });
-    });
   }
 }
