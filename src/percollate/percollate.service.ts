@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import * as exiftoolBin from 'dist-exiftool';
-import * as fs from 'fs';
+import exiftoolBin from 'dist-exiftool';
+import fs from 'fs';
 import { JSDOM } from 'jsdom';
-import * as exiftool from 'node-exiftool';
-import * as path from 'path';
-import * as percollate from 'percollate-fork';
-import * as Readability from 'readability';
-import * as util from 'util';
-import * as uuidv5 from 'uuid/v5';
-import * as childProcess from 'child_process';
+import exiftool from 'node-exiftool';
+import path from 'path';
+import percollate from 'percollate-fork';
+import Readability from 'readability';
+import util from 'util';
+import uuidv5 from 'uuid/v5';
+import childProcess from 'child_process';
 
 const exec = util.promisify(childProcess.exec);
 

@@ -16,7 +16,7 @@ describe('AppController', () => {
   describe('root', () => {
     it('should contain "Percollate API"', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.root()).toContain('Percollate API');
+      expect(appController.root()).toContain('Read the web API');
     });
   });
 });

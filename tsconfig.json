@@ -1,27 +1,15 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "declaration": false,
-    "noImplicitAny": false,
     "removeComments": true,
-    "resolveJsonModule": true,
-    "noLib": false,
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
+    "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./src",
-    "typeRoots" : ["./node_modules/@types", "./typings"]
+    "baseUrl": "./",
+    "incremental": true,
   },
-  "include": [
-    "src/**/*",
-    "./typings"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["node_modules", "dist"]
 }

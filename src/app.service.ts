@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import * as data from '../package-lock.json';
 
 @Injectable()
 export class AppService {

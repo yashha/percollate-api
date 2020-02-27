@@ -38,5 +38,6 @@ node_modules/
 # IntelliJ
 .idea
 cache
-
+.cache
+.vscode
 dist

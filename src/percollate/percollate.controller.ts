@@ -1,6 +1,6 @@
 import { Controller, Get, HttpException, HttpStatus, OnModuleInit, Param, Query, Req, Res } from '@nestjs/common';
-import * as makeDir from 'make-dir';
-import * as path from 'path';
+import makeDir from 'make-dir';
+import path from 'path';
 import { PercollateService } from './percollate.service';
 
 
