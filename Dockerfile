@@ -42,6 +42,7 @@ COPY package.json ./
 RUN npm install
 COPY . ./
 
-#parcel tsparcel tsRUN npm run build
+#parcel tsparcel ts
+RUN npm run build
 EXPOSE 3000
 CMD ["dumb-init", "npm", "run", "start"]
