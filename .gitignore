@@ -5,6 +5,8 @@ jspm_packages
 # Serverless directories
 .serverless
 .cache
+cache
 .netlify
 .vercel
 .vscode
+dist
