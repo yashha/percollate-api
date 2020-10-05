@@ -1,46 +1,26 @@
-# Initially from here https://github.com/christopher-talke/node-express-puppeteer-pdf-example
-FROM debian:jessie-slim
+FROM bitnami/node:14 as builder
+ENV NODE_ENV="production"
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
-RUN apt-get update && apt-get install wget -y
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list
-RUN apt-get update && apt-get install google-chrome-stable -y \
-    && apt-get dist-upgrade -yq
+COPY . /app
+WORKDIR /app
 
-RUN apt-get install -y texlive-extra-utils
+RUN npm install -g yarn
 
-RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64.deb
-RUN dpkg -i dumb-init_*.deb
+RUN node --version \
+    && npm --version \ 
+    && yarn --version
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN yarn
 
-ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 13.7.0
 
-# install nvm
-# https://github.com/creationix/nvm#install-script
-RUN apt-get update \
-    && apt-get install -y curl \
-    && apt-get -y autoclean
-RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh | bash
+FROM bitnami/node:14-prod
+ENV NODE_ENV="production"
+COPY --from=builder /app /app
 
-# install node and npm
-RUN source $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
+RUN install_packages texlive-extra-utils texlive-latex-recommended chromium dumb-init
 
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
-
-RUN node -v
-RUN npm -v
-
-RUN apt-get install git -y
-WORKDIR /usr/app
-COPY package.json ./
-RUN npm install
-COPY . ./
+WORKDIR /app
 
 EXPOSE 3000
-CMD ["dumb-init", "npm", "run", "start"]
+CMD ["dumb-init", "yarn", "start"]

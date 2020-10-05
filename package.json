@@ -31,6 +31,7 @@
     "readability": "github:mozilla/readability",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.2",
+    "ts-node": "^9.0.0",
     "turndown": "^5.0.3",
     "typescript": "^3.7.5",
     "uuid": "^3.3.2"
@@ -45,7 +46,6 @@
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "^25.0.0",
-    "ts-node": "^9.0.0",
     "ts-node-dev": "^1.0.0-pre.63",
     "tslint": "6.0.0"
   },
