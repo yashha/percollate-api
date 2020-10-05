@@ -1,9 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import exiftoolBin from 'dist-exiftool';
 import fs from 'fs';
 import { JSDOM } from 'jsdom';
-import exiftool from 'node-exiftool';
 import path from 'path';
 import percollate from 'percollate';
 import { Readability } from 'readability';
