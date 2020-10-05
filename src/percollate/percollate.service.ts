@@ -5,8 +5,8 @@ import fs from 'fs';
 import { JSDOM } from 'jsdom';
 import exiftool from 'node-exiftool';
 import path from 'path';
-import percollate from 'percollate-fork';
-import Readability from 'readability';
+import percollate from 'percollate';
+import { Readability } from 'readability';
 import util from 'util';
 import uuidv5 from 'uuid/v5';
 import childProcess from 'child_process';
@@ -25,10 +25,6 @@ export class PercollateService {
       basePath,
       filename,
     );
-    if (fs.existsSync(file)) {
-      const metadata = await this.addExif(urls[0], file);
-      return { file, title: metadata.Title };
-    }
 
     percollate.configure();
 
@@ -37,7 +33,7 @@ export class PercollateService {
         await percollate.pdf(urls, {
           output: file,
           sandbox: false,
-          template: path.join(__dirname, './default-template.html'),
+          template: path.join(__dirname, '../../static/default-template.html'),
           ...options,
         });
         break;
@@ -45,7 +41,7 @@ export class PercollateService {
         await percollate.epub(urls, {
           output: file,
           sandbox: false,
-          template: path.join(__dirname, './default-template.html'),
+          template: path.join(__dirname, '../../default-template.html'),
           ...options,
         });
         break;
@@ -53,15 +49,7 @@ export class PercollateService {
         await percollate.html(urls, {
           output: file,
           sandbox: false,
-          template: path.join(__dirname, './default-template.html'),
-          ...options,
-        });
-        break;
-      case 'md':
-        await percollate.md(urls, {
-          output: file,
-          sandbox: false,
-          template: path.join(__dirname, './markdown-template.html'),
+          template: path.join(__dirname, '../../default-template.html'),
           ...options,
         });
         break;
@@ -70,7 +58,7 @@ export class PercollateService {
     await this.convertPagesPerSide(file, pagesPerSide);
 
     if (urls.length > 0) {
-      const metadata = await this.addExif(urls[0], file);
+      const metadata = await this.getMetaData(urls[0], file);
       return { file, title: metadata.Title };
     }
 
@@ -111,7 +99,7 @@ export class PercollateService {
     return file;
   }
 
-  async addExif(url: string, file: string) {
+  async getMetaData(url: string, file: string) {
     const { data } = await axios.get<string>(url);
     const document = new JSDOM(data).window.document;
     const article = new Readability(document).parse();
@@ -119,16 +107,6 @@ export class PercollateService {
       Title: article.title,
     };
 
-    const ep = new exiftool.ExiftoolProcess(exiftoolBin);
-
-    try {
-      await ep.open();
-      await ep.writeMetadata(file, metadata);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      ep.close();
-    }
     return metadata;
   }
 
