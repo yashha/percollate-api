@@ -4,11 +4,9 @@
   "description": "Nest TypeScript starter repository",
   "license": "MIT",
   "scripts": {
+    "dev": "ts-node-dev ./src/main.ts",
+    "start": "ts-node ./src/main.ts",
     "format": "prettier --write \"src/**/*.ts\"",
-    "build": "parcel build ./src/main.ts --target node",
-    "dev": "ts-node ./src/main.ts",
-    "watch": "nodemon ./src/dist/main.js",
-    "start": "node dist/main.js",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "lintfix": "tslint --fix -p tsconfig.json -c tslint.json",
     "test": "jest",
@@ -46,13 +44,11 @@
     "@types/turndown": "^5.0.0",
     "jest": "^25.1.0",
     "nodemon": "^2.0.4",
-    "npm-run-all": "^4.1.5",
-    "parcel": "^1.12.4",
-    "parcel-plugin-static-files-copy": "^2.3.1",
     "prettier": "^1.19.1",
     "supertest": "^4.0.2",
     "ts-jest": "^25.0.0",
     "ts-node": "^9.0.0",
+    "ts-node-dev": "^1.0.0-pre.63",
     "tslint": "6.0.0"
   },
   "jest": {
