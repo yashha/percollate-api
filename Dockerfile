@@ -17,6 +17,8 @@ RUN yarn
 
 FROM bitnami/node:14-prod
 ENV NODE_ENV="production"
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
+    PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 COPY --from=builder /app /app
 
 RUN install_packages texlive-extra-utils texlive-latex-recommended chromium dumb-init
