@@ -5,8 +5,8 @@ import { JSDOM } from 'jsdom';
 import path from 'path';
 import percollate from 'percollate';
 import { Readability } from 'readability';
-import util from 'util'
-;import { v5 as uuidv5 } from 'uuid';
+import util from 'util';
+import { v5 as uuidv5 } from 'uuid';
 import childProcess from 'child_process';
 
 const exec = util.promisify(childProcess.exec);
