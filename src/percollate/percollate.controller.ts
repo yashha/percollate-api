@@ -15,14 +15,14 @@ export class PercollateController implements OnModuleInit {
     @Res() response,
     @Req() request,
     @Param('method') method,
-    @Query('url') urls,
+    @Query('urls') urls,
     @Query('pagesperside') pagesPerSide: number,
     @Query() options,
   ) {
     const filteredQuery = options;
     delete filteredQuery.url;
     delete filteredQuery.output;
-    const parsedUrls = Array.isArray(urls) ? urls : [urls];
+    const parsedUrls = urls ? urls.split(',') : [];
 
     try {
       if (['pdf', 'epub', 'html'].indexOf(method) > -1) {
