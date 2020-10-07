@@ -6,7 +6,6 @@ import path from 'path';
 import percollate from 'percollate';
 import { Readability } from 'readability';
 import util from 'util';
-import { v5 as uuidv5 } from 'uuid';
 import childProcess from 'child_process';
 
 const exec = util.promisify(childProcess.exec);
@@ -18,7 +17,7 @@ export class PercollateService {
   async run(urls: string[], method: string, pagesPerSide: number, options: any) {
 
     console.log('Pages per side: ' + (pagesPerSide !== undefined ? pagesPerSide : 0));
-    const filename = uuidv5(JSON.stringify(urls) + JSON.stringify(options) + pagesPerSide, uuidv5.URL) + '.' + method;
+    const filename = JSON.stringify(urls) + JSON.stringify(options) + pagesPerSide + '.' + method;
     const file = path.resolve(
       basePath,
       filename,
