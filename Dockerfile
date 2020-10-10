@@ -33,14 +33,16 @@ RUN source $NVM_DIR/nvm.sh \
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
-RUN node -v
-RUN npm -v
+COPY . /app
+WORKDIR /app
 
-RUN apt-get install git -y
-WORKDIR /usr/app
-COPY package.json ./
-RUN npm install
-COPY . ./
+RUN npm install -g yarn
+
+RUN node --version \
+    && npm --version \ 
+    && yarn --version
+
+RUN yarn
 
 EXPOSE 3000
-CMD ["dumb-init", "npm", "run", "start"]
+CMD ["dumb-init", "yarn", "start"]
