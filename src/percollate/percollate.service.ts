@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import axios from 'axios';
+import fetch from 'node-fetch';
 import fs from 'fs';
 import { JSDOM } from 'jsdom';
 import path from 'path';
@@ -24,6 +24,9 @@ export class PercollateService {
     );
 
     percollate.configure();
+
+    console.log(options.author);
+    options.author = '';
 
     switch (method) {
       case 'pdf':
@@ -97,8 +100,9 @@ export class PercollateService {
   }
 
   async getMetaData(url: string, file: string) {
-    const { data } = await axios.get<string>(url);
-    const document = new JSDOM(data).window.document;
+    const response = await fetch(url);
+    const html = await response.text();
+    const document = new JSDOM(html).window.document;
     const article = new Readability(document).parse();
     const metadata = {
       Title: article.title,
