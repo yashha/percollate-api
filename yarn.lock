@@ -3827,7 +3827,7 @@ pend@~1.2.0:
 
 "percollate@github:yashha/percollate#feature/hyphenation":
   version "1.1.2"
-  resolved "https://codeload.github.com/yashha/percollate/tar.gz/089c0c84e7429d0ffdbdb9d26d76e493745ec958"
+  resolved "https://codeload.github.com/yashha/percollate/tar.gz/4c84494dfd4e12c04ef1a3308781864906a6d501"
   dependencies:
     "@mozilla/readability" "^0.3.0"
     archiver "^5.0.2"
