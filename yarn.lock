@@ -2362,10 +2362,10 @@ human-signals@^1.1.1:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
 
-hyphenopoly@^4.8.1:
-  version "4.8.1"
-  resolved "https://registry.yarnpkg.com/hyphenopoly/-/hyphenopoly-4.8.1.tgz#f8e7b75761983ee3f3fed0e7709f6226ae2daaae"
-  integrity sha512-UZloP6WP6v+Fy+brO2by7NPPM1ITrx9m/QLt1nccRxj4LcZzFvZcXUKf0gV5ewJpKMhl0pvnN1T9A7s+UaxcBQ==
+hyphenopoly@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/hyphenopoly/-/hyphenopoly-4.9.0.tgz#0d051e44385aea3b7e9363b450b352a36128816b"
+  integrity sha512-reHD1iPIb0arao1tVxeoYc72GXqd6cctivyplTCj5ngyMIghDmo/n3dZYItaifHkvhyAAbreBgD9eSzToDcBHw==
 
 iconv-lite@0.4.24:
   version "0.4.24"
@@ -2619,10 +2619,10 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
-iso-639-3@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/iso-639-3/-/iso-639-3-2.2.0.tgz#eb01d7734d61396efec934979e8b0806550837f1"
-  integrity sha512-v9w/U4XDSfXCrXxf4E6ertGC/lTRX8MLLv7XC1j6N5oL3ympe38jp77zgeyMsn3MbufuAAoGeVzDJbOXnPTMhQ==
+iso-639-3-to-1@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/iso-639-3-to-1/-/iso-639-3-to-1-1.0.0.tgz#c1749f9b097f0e6295e93632e0fcb0946e3233e1"
+  integrity sha512-oBhwbVD5hfZT6e+CcokEH3n5zIEp03MOzbjDvsRAUVGIRqD8qc9h2A3NzXP5+srDpxypb6YrBal7tN/NlYVbpg==
 
 isobject@^2.0.0:
   version "2.1.0"
@@ -3827,15 +3827,15 @@ pend@~1.2.0:
 
 "percollate@github:yashha/percollate#feature/hyphenation":
   version "1.1.2"
-  resolved "https://codeload.github.com/yashha/percollate/tar.gz/4c84494dfd4e12c04ef1a3308781864906a6d501"
+  resolved "https://codeload.github.com/yashha/percollate/tar.gz/7a91455b3efa06521b9f7cc575741ba6def21b37"
   dependencies:
     "@mozilla/readability" "^0.3.0"
     archiver "^5.0.2"
     css "^3.0.0"
     dompurify "^2.1.1"
     franc-all "^6.0.0"
-    hyphenopoly "^4.8.1"
-    iso-639-3 "^2.2.0"
+    hyphenopoly "^4.9.0"
+    iso-639-3-to-1 "^1.0.0"
     jsdom "^16.4.0"
     mimetype "^0.0.8"
     node-fetch "^2.6.1"
