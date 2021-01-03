@@ -33,7 +33,8 @@ export class PercollateService {
         await percollate.pdf(urls, {
           output: file,
           sandbox: false,
-          template: path.join(__dirname, '../../static/default-template.html'),
+          hyphenate: true,
+          template: path.resolve(__dirname, '../../static/default-template.html'),
           ...options,
         });
         break;
@@ -41,15 +42,23 @@ export class PercollateService {
         await percollate.epub(urls, {
           output: file,
           sandbox: false,
-          template: path.join(__dirname, '../../default-template.html'),
+          hyphenate: true,
+          template: path.resolve(__dirname, '../../static/default-template.html'),
           ...options,
         });
         break;
       case 'html':
+        options.css += `
+          .article {
+            max-width: 40rem;
+            margin: 2rem auto;
+          }
+        `;
         await percollate.html(urls, {
           output: file,
           sandbox: false,
-          template: path.join(__dirname, '../../default-template.html'),
+          hyphenate: true,
+          template: path.resolve(__dirname, '../../static/default-template.html'),
           ...options,
         });
         break;
