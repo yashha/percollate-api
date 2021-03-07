@@ -30,6 +30,13 @@ export class PercollateService {
 
     switch (method) {
       case 'pdf':
+        options.css += `
+          div > figure {
+            width: 30%;
+            float: right;
+            margin-left: 30px !important;
+          }
+        `;
         await percollate.pdf(urls, {
           output: file,
           sandbox: false,
