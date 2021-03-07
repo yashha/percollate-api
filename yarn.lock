@@ -3745,10 +3745,10 @@ path-type@^1.0.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
-pdf-lib@^1.14.0:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.14.1.tgz#e68c5f7d4600780cb80ad1fb8945fc5316044b50"
-  integrity sha512-0/oxGLT8HruoTToxVxUzTL8wBWOuUjKDU6Q6NsIDXGFXek4qNZUMq35/EJ9ANJhkqJEMG+T7tcUniUTQ3xi1Cw==
+pdf-lib@^1.14.1:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/pdf-lib/-/pdf-lib-1.16.0.tgz#63cacec0d6139bf7a670dea8bad747ebf4c1fb42"
+  integrity sha512-P/1SSmElOBKrPlbc+Sn7UxikRQbzVA64+4Dh6/uczPscvq/NatP9eryoOguyBTpTnzICNiG8EnMH4Ziqp2TnFA==
   dependencies:
     "@pdf-lib/standard-fonts" "^1.0.0"
     "@pdf-lib/upng" "^1.0.1"
@@ -3760,10 +3760,10 @@ pend@~1.2.0:
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
   integrity sha1-elfrVQpng/kRUzH89GY9XI4AelA=
 
-percollate@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/percollate/-/percollate-1.2.0.tgz#a7bee172eac17aae1c9f78ecfd076699de42d3a1"
-  integrity sha512-eku0vIaeNxC3S+XRiufB+UN0jtkYieASLJ/bHtFR5weiE+YD4jEQU0BSCm8i//7Nw/Gl+tTXeWtagLvpOzOedg==
+percollate@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/percollate/-/percollate-1.2.1.tgz#91658dacb8af8f9c27bad0660805719bc0e944ae"
+  integrity sha512-FpAyfZzHBu0CecS/8DkWBXpxuW6tE5Ka8DXcX9jz+izQmAPv8phB1AkwzLBTqTjlyu0KVppVcF8g3poDXyFzcw==
   dependencies:
     "@mozilla/readability" "^0.4.0"
     archiver "^5.1.0"
@@ -3776,7 +3776,7 @@ percollate@^1.2.0:
     mimetype "^0.0.8"
     node-fetch "^2.6.1"
     nunjucks "^3.2.2"
-    pdf-lib "^1.14.0"
+    pdf-lib "^1.14.1"
     puppeteer "^5.5.0"
     slugify "^1.4.6"
     srcset "^3.0.0"

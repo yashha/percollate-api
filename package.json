@@ -27,7 +27,7 @@
     "jsdom": "^16.4.0",
     "make-dir": "^3.1.0",
     "node-fetch": "^2.6.1",
-    "percollate": "^1.2.0",
+    "percollate": "^1.2.1",
     "readability": "github:mozilla/readability",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.6.3",
