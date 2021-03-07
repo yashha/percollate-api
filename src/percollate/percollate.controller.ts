@@ -30,8 +30,8 @@ export class PercollateController implements OnModuleInit {
         await this.handleRequest(file, title, method, response, request);
       }
     } catch (error) {
-      console.error(error);
-      throw new HttpException('Forbidden', HttpStatus.FORBIDDEN);
+      const message = process.env.NODE_ENV === 'production' ? 'Forbidden' : error.message;
+      throw new HttpException(message, HttpStatus.FORBIDDEN);
     }
   }
 
