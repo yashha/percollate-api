@@ -44,6 +44,9 @@ export class PercollateService {
           template: path.resolve(__dirname, '../../static/default-template.html'),
           ...options,
         });
+
+        await this.convertPagesPerSide(file, pagesPerSide);
+
         break;
       case 'epub':
         await percollate.epub(urls, {
@@ -70,8 +73,6 @@ export class PercollateService {
         });
         break;
     }
-
-    await this.convertPagesPerSide(file, pagesPerSide);
 
     if (urls.length > 0) {
       const metadata = await this.getMetaData(urls[0], file);
