@@ -3774,10 +3774,10 @@ pend@~1.2.0:
   resolved "https://registry.yarnpkg.com/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
   integrity sha1-elfrVQpng/kRUzH89GY9XI4AelA=
 
-percollate@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/percollate/-/percollate-1.2.2.tgz#7f1c1c8c0ad7a9cb77c5891d3986555bed888f2f"
-  integrity sha512-/ZyNt21jjwdOlhHVDMXViWMXvqPRbE2eDquUyGpOP3u36K2RaSOtzSaavfEhUAqFGwVj9Gn+lZMGX8owzbdpZQ==
+percollate@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/percollate/-/percollate-1.2.3.tgz#ac7f5388807019e0449438459b0bd7946296e440"
+  integrity sha512-NaA76P7T8kkfocovc5EXF0UVE7pb57mm1cwIXXIy/AAiqwnQkqfK8CO1szNvkFsmtk96M2Phj+y8Dq0QQgSv2Q==
   dependencies:
     "@mozilla/readability" "^0.4.0"
     archiver "^5.1.0"
@@ -4004,10 +4004,6 @@ read-pkg@^5.2.0:
     normalize-package-data "^2.5.0"
     parse-json "^5.0.0"
     type-fest "^0.6.0"
-
-"readability@github:mozilla/readability":
-  version "0.4.0"
-  resolved "https://codeload.github.com/mozilla/readability/tar.gz/2d358266560e669f13932d6197c6cff958bc3df6"
 
 readable-stream@1.1.x:
   version "1.1.14"

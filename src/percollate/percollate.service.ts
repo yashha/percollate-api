@@ -1,10 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import fetch from 'node-fetch';
 import fs from 'fs';
-import { JSDOM } from 'jsdom';
 import path from 'path';
 import percollate from 'percollate';
-import { Readability } from 'readability';
 import util from 'util';
 import { v5 as uuidv5 } from 'uuid';
 import childProcess from 'child_process';
@@ -22,6 +19,7 @@ export class PercollateService {
       basePath,
       filename,
     );
+    let result = null;
 
     percollate.configure();
 
@@ -37,7 +35,7 @@ export class PercollateService {
             margin-left: 30px !important;
           }
         `;
-        await percollate.pdf(urls, {
+        result = await percollate.pdf(urls, {
           output: file,
           sandbox: false,
           hyphenate: true,
@@ -49,7 +47,7 @@ export class PercollateService {
 
         break;
       case 'epub':
-        await percollate.epub(urls, {
+        result = await percollate.epub(urls, {
           output: file,
           sandbox: false,
           hyphenate: true,
@@ -64,7 +62,7 @@ export class PercollateService {
             margin: 2rem auto;
           }
         `;
-        await percollate.html(urls, {
+        result = await percollate.html(urls, {
           output: file,
           sandbox: false,
           hyphenate: true,
@@ -75,8 +73,7 @@ export class PercollateService {
     }
 
     if (urls.length > 0) {
-      const metadata = await this.getMetaData(urls[0], file);
-      return { file, title: metadata.Title };
+      return { file, title: result.items[0].title };
     }
 
     return { file };
@@ -114,18 +111,6 @@ export class PercollateService {
     console.log(stdout);
     console.log(stderr);
     return file;
-  }
-
-  async getMetaData(url: string, file: string) {
-    const response = await fetch(url);
-    const html = await response.text();
-    const document = new JSDOM(html).window.document;
-    const article = new Readability(document).parse();
-    const metadata = {
-      Title: article.title,
-    };
-
-    return metadata;
   }
 
   deleteFilesOlderThan(directory: string, time: number) {
