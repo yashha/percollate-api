@@ -35,8 +35,8 @@ export class PercollateController implements OnModuleInit {
     }
   }
 
-  async handleRequest(file, title, method,  response, request) {
-    response.set('Content-Disposition', `inline; filename="${title}.${method}"`);
+  async handleRequest(file, title, method, response: Response, request) {
+    response.attachment(`${title}.${method}`)
     await response.sendFile(file);
     request.on('end', async () => {
       await this.percollateService.cleanupOld();
