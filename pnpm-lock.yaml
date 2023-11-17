@@ -6,25 +6,25 @@ settings:
 
 dependencies:
   '@nestjs/common':
-    specifier: ^7.5.4
+    specifier: ^7.6.18
     version: 7.6.18(reflect-metadata@0.1.13)(rxjs@6.6.7)
   '@nestjs/core':
-    specifier: ^7.5.4
+    specifier: ^7.6.18
     version: 7.6.18(@nestjs/common@7.6.18)(@nestjs/microservices@7.6.18)(@nestjs/platform-express@7.6.18)(@nestjs/websockets@7.6.18)(reflect-metadata@0.1.13)(rxjs@6.6.7)
   '@nestjs/microservices':
-    specifier: ^7.5.4
+    specifier: ^7.6.18
     version: 7.6.18(@nestjs/common@7.6.18)(@nestjs/core@7.6.18)(@nestjs/websockets@7.6.18)(reflect-metadata@0.1.13)(rxjs@6.6.7)
   '@nestjs/platform-express':
-    specifier: ^7.5.4
+    specifier: ^7.6.18
     version: 7.6.18(@nestjs/common@7.6.18)(@nestjs/core@7.6.18)
   '@nestjs/testing':
-    specifier: ^7.5.4
+    specifier: ^7.6.18
     version: 7.6.18(@nestjs/common@7.6.18)(@nestjs/core@7.6.18)(@nestjs/microservices@7.6.18)(@nestjs/platform-express@7.6.18)
   '@nestjs/websockets':
-    specifier: ^7.5.4
+    specifier: ^7.6.18
     version: 7.6.18(@nestjs/common@7.6.18)(@nestjs/core@7.6.18)(reflect-metadata@0.1.13)(rxjs@6.6.7)
   '@types/node-fetch':
-    specifier: ^2.5.7
+    specifier: ^2.6.9
     version: 2.6.9
   helmet:
     specifier: ^4.6.0
@@ -36,19 +36,19 @@ dependencies:
     specifier: ^8.0.0
     version: 8.0.0
   percollate:
-    specifier: ^4
+    specifier: ^4.0.3
     version: 4.0.3(typescript@4.9.5)
   reflect-metadata:
     specifier: ^0.1.13
     version: 0.1.13
   rxjs:
-    specifier: ^6.6.3
+    specifier: ^6.6.7
     version: 6.6.7
   ts-node:
     specifier: ^10.9.1
     version: 10.9.1(@types/node@14.18.63)(typescript@4.9.5)
   typescript:
-    specifier: ^4.7.4
+    specifier: ^4.9.5
     version: 4.9.5
   uuid:
     specifier: ^8.3.2
@@ -59,31 +59,31 @@ devDependencies:
     specifier: ^16.1.1
     version: 16.1.1
   '@types/express':
-    specifier: ^4.17.13
+    specifier: ^4.17.21
     version: 4.17.21
   '@types/jest':
-    specifier: ^27.0.2
+    specifier: ^27.5.2
     version: 27.5.2
   '@types/node':
-    specifier: ^14.14.9
+    specifier: ^14.18.63
     version: 14.18.63
   '@types/supertest':
-    specifier: ^2.0.11
+    specifier: ^2.0.16
     version: 2.0.16
   '@types/uuid':
     specifier: ^9.0.7
     version: 9.0.7
   jest:
-    specifier: ^27.2.3
+    specifier: ^27.5.1
     version: 27.5.1(ts-node@10.9.1)
   prettier:
-    specifier: ^2.4.1
+    specifier: ^2.8.8
     version: 2.8.8
   supertest:
-    specifier: ^6.1.6
+    specifier: ^6.3.3
     version: 6.3.3
   ts-jest:
-    specifier: ^27.0.5
+    specifier: ^27.1.5
     version: 27.1.5(@babel/core@7.23.3)(@types/jest@27.5.2)(jest@27.5.1)(typescript@4.9.5)
   ts-node-dev:
     specifier: ^2.0.0
