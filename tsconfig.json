@@ -1,15 +1,41 @@
 {
+  "extends": "ts-node/node16/tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "removeComments": true,
-    "esModuleInterop": true,
-    "emitDecoratorMetadata": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "target": "es2017",
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
     "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./",
-    "incremental": true,
+    "declaration": true,
+    "alwaysStrict": false,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitReturns": true,
+    "strict": false,
+    "noFallthroughCasesInSwitch": true,
+    "emitDecoratorMetadata": true,
+    "composite": true,
+    "skipLibCheck": true,
+    "noEmitHelpers": false,
+    "allowJs": false,
+
+    "outDir": "dist",
+    "rootDir": "src",
+    "baseUrl": "."
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "include": ["src", "index.d.ts"]
 }

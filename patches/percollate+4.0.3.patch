@@ -1,0 +1,27 @@
+diff --git a/node_modules/percollate/src/hyphenate.js b/node_modules/percollate/src/hyphenate.js
+index d475224..886b403 100644
+--- a/node_modules/percollate/src/hyphenate.js
++++ b/node_modules/percollate/src/hyphenate.js
+@@ -1,6 +1,8 @@
+ import { readFileSync } from 'node:fs';
+ import Hyphenator from 'hyphenopoly';
++import { createRequire } from "module";
+ 
++const require = createRequire(import.meta.url);
+ const DEFAULT_LANG = 'en-us';
+ 
+ function getHypenatorByLang(lang) {
+@@ -10,12 +12,7 @@ function getHypenatorByLang(lang) {
+ 	return Hyphenator.config({
+ 		sync: true,
+ 		loaderSync: file => {
+-			return readFileSync(
+-				new URL(
+-					`../node_modules/hyphenopoly/patterns/${file}`,
+-					import.meta.url
+-				)
+-			);
++			return readFileSync(require.resolve(`hyphenopoly/patterns/${file}`));
+ 		},
+ 		require: [language],
+ 		defaultLanguage: DEFAULT_LANG,

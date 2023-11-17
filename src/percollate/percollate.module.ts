@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { PercollateController } from './percollate.controller';
-import { PercollateService } from './percollate.service';
+import { PercollateController } from './percollate.controller.js';
+import { PercollateService } from './percollate.service.js';
 
 @Module({
   controllers: [PercollateController],

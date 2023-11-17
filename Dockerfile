@@ -36,13 +36,13 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 COPY . /app
 WORKDIR /app
 
-RUN npm install -g yarn
+RUN npm install -g pnpm
 
 RUN node --version \
-    && npm --version \ 
-    && yarn --version
+    && npm --version \
+    && pnpm --version
 
-RUN yarn
+RUN pnpm install
 
 EXPOSE 3000
-CMD ["dumb-init", "yarn", "start"]
+CMD ["dumb-init", "pnpm", "start"]

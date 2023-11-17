@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import fs from 'fs';
 import path from 'path';
-import percollate from 'percollate';
+import * as percollate from 'percollate';
 import util from 'util';
 import { v5 as uuidv5 } from 'uuid';
 import childProcess from 'child_process';
 
 const exec = util.promisify(childProcess.exec);
 
-const basePath = path.resolve(__dirname + '/../../cache');
+const basePath = (new URL('../../cache', import.meta.url)).pathname;
 
 @Injectable()
 export class PercollateService {
@@ -19,7 +19,7 @@ export class PercollateService {
       basePath,
       filename,
     );
-    let result = null;
+    let result: any = null;
 
     percollate.configure();
 
@@ -39,7 +39,7 @@ export class PercollateService {
           output: file,
           sandbox: false,
           hyphenate: true,
-          template: path.resolve(__dirname, '../../static/default-template.html'),
+          template: (new URL('../../static/default-template.html', import.meta.url)).pathname,
           ...options,
         });
 
@@ -50,8 +50,8 @@ export class PercollateService {
         result = await percollate.epub(urls, {
           output: file,
           sandbox: false,
-          hyphenate: true,
-          template: path.resolve(__dirname, '../../static/default-template.html'),
+          hyphenate: false,
+          template: (new URL('../../static/default-template.html', import.meta.url)).pathname,
           ...options,
         });
         break;
@@ -65,22 +65,22 @@ export class PercollateService {
         result = await percollate.html(urls, {
           output: file,
           sandbox: false,
-          hyphenate: true,
-          template: path.resolve(__dirname, '../../static/default-template.html'),
+          hyphenate: false,
+          template: (new URL('../../static/default-template.html', import.meta.url)).pathname,
           ...options,
         });
         break;
     }
 
-    if (urls.length > 0) {
+    if (urls.length > 0 && result && result.items.length > 0) {
       return { file, title: result.items[0].title };
     }
 
     return { file };
   }
 
-  async convertPagesPerSide(file, pages) {
-    const orientation = {
+  async convertPagesPerSide(file: string, pages: number) {
+    const orientation: Record<number, string> = {
       2: 'landscape',
       4: 'portrait',
       // 6: "landscape",
@@ -88,7 +88,7 @@ export class PercollateService {
       // 16: "portrait",
     };
 
-    const mode = {
+    const mode: Record<number, string> = {
       2: '2x1',
       4: '2x2',
       // 6: "3x2",
@@ -105,7 +105,7 @@ export class PercollateService {
     }
   }
 
-  async convertNup(file, nup= '2x1', noLandscape= false) {
+  async convertNup(file: string, nup= '2x1', noLandscape= false) {
     const noLandscapeAttribute = noLandscape ? '--no-landscape' : '';
     const { stdout, stderr } = await exec(`pdfnup --nup ${nup} ${file} ${noLandscapeAttribute} --outfile ${file}`);
     console.log(stdout);
