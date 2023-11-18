@@ -6,7 +6,7 @@ import util from 'util';
 import { v5 as uuidv5 } from 'uuid';
 import childProcess from 'child_process';
 
-const exec = util.promisify(childProcess.exec);
+const execFile = util.promisify(childProcess.execFile);
 
 const basePath = (new URL('../../cache', import.meta.url)).pathname;
 
@@ -107,7 +107,9 @@ export class PercollateService {
 
   async convertNup(file: string, nup= '2x1', noLandscape= false) {
     const noLandscapeAttribute = noLandscape ? '--no-landscape' : '';
-    const { stdout, stderr } = await exec(`pdfnup --nup ${nup} ${file} ${noLandscapeAttribute} --outfile ${file}`);
+    let cmd = "pdfnup",
+    args = ["---nup", file, noLandscapeAttribute, '--outfile', file];
+    const { stdout, stderr } = await execFile(cmd, args);
     console.log(stdout);
     console.log(stderr);
     return file;
