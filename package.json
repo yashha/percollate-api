@@ -1,9 +1,12 @@
 {
   "name": "percollate-api",
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
   "license": "MIT",
-  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@8.7.0",
+  "engines": {
+    "node": "^16.11.0 || ^17.0.0 || || ^18.0.0"
+  },
   "scripts": {
     "start": "NODE_ENV=production ts-node-esm ./src/main.ts",
     "format": "prettier --write \"src/**/*.ts\"",
