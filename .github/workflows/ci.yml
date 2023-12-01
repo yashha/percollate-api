@@ -27,4 +27,4 @@ jobs:
       run: pnpm install
 
     - name: Run basic tests
-      run: pnpm ci
+      run: pnpm run ci
