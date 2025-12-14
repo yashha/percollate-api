@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:22
 
 RUN apt-get update && apt-get install wget -y
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
