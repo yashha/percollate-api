@@ -1,6 +1,7 @@
 FROM ghcr.io/puppeteer/puppeteer:latest
 
-RUN apt-get install -y texlive-extra-utils
+RUN apt-get update && apt-get install -y texlive-extra-utils
+
 RUN npm install -g pnpm
 
 WORKDIR /app
