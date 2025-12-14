@@ -1,0 +1,462 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.12.5)  9 DEC 2023 02:40
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**temp-pdfxup-1702086017.tex
+(./temp-pdfxup-1702086017.tex
+LaTeX2e <2022-11-01> patch level 1
+L3 programming layer <2023-02-22> (/usr/share/texmf-dist/tex/latex/pdfxup/pdfxu
+p-template.tex (/usr/share/texmf-dist/tex/latex/base/minimal.cls
+Document Class: minimal 2001/05/25 Standard LaTeX minimal class
+) (/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+) (/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+(/usr/share/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count185
+\Gm@cntv=\count186
+\c@Gm@tempcnt=\count187
+\Gm@bindingoffset=\dimen140
+\Gm@wd@mp=\dimen141
+\Gm@odd@mp=\dimen142
+\Gm@even@mp=\dimen143
+\Gm@layoutwidth=\dimen144
+\Gm@layoutheight=\dimen145
+\Gm@layouthoffset=\dimen146
+\Gm@layoutvoffset=\dimen147
+\Gm@dimlist=\toks17
+) (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen148
+\Gin@req@width=\dimen149
+) (/usr/share/texmf-dist/tex/latex/grffile/grffile.sty
+Package: grffile 2019/11/11 v2.1 Extended file name support for graphics (legac
+y)
+Package grffile Info: This package is an empty stub for compatibility on input 
+line 40.
+)
+\c@result=\count188
+\c@lastpage=\count189
+\c@outpage=\count190
+\outputvmargin=\skip48
+\outputhmargin=\skip49
+\innervmargin=\skip50
+\innerhmargin=\skip51
+\outputindivvmargin=\skip52
+\outputindivhmargin=\skip53
+\hresult=\skip54
+\vresult=\skip55
+\vboxsize=\skip56
+\hboxsize=\skip57
+\c@origx=\count191
+\c@origy=\count192
+\finalx=\skip58
+\finaly=\skip59
+\scale=\write3
+\openout3 = `temp-pdfxup-1702086017.scl'.
+
+(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count193
+\l__pdf_internal_box=\box51
+)
+No file temp-pdfxup-1702086017.aux.
+\openout1 = `temp-pdfxup-1702086017.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 175.
+LaTeX Font Info:    ... okay on input line 175.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: landscape 
+* h-part:(L,W,R)=(0.0pt, 845.04684pt, 0.0pt)
+* v-part:(T,H,B)=(0.0pt, 597.50787pt, 0.0pt)
+* \paperwidth=845.04684pt
+* \paperheight=597.50787pt
+* \textwidth=845.04684pt
+* \textheight=597.50787pt
+* \oddsidemargin=-72.26999pt
+* \evensidemargin=-72.26999pt
+* \topmargin=-72.26999pt
+* \headheight=0.0pt
+* \headsep=0.0pt
+* \topskip=0.0pt
+* \footskip=0.0pt
+* \marginparwidth=0.0pt
+* \marginparsep=0.0pt
+* \columnsep=0.0pt
+* \skip\footins=12.0pt plus 4.0pt minus 4.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count194
+\scratchdimen=\dimen150
+\scratchbox=\box52
+\nofMPsegments=\count195
+\nofMParguments=\count196
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count197
+\MPscratchDim=\dimen151
+\MPnumerator=\count198
+\makeMPintoPDFobject=\count199
+\everyMPtoPDFconversion=\toks19
+) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@curroutpage=\count266
+\c@currpage=\count267
+\c@linecurrpage=\count268
+\c@currcol=\count269
+\c@currline=\count270
+\c@realout=\count271
+\c@wmout=\count272
+\c@wmoutaux=\count273
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=1, page=1, 421.575pt x 597.19106pt
+>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 1>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page1 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=3, page=2, 421.575pt x 597.19106pt
+>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 2>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page2 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[1 <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-1702
+086017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=34, page=3, 421.575pt x 597.19106p
+t>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 3>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page3 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=36, page=4, 421.575pt x 597.19106p
+t>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 4>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page4 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[2
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=62, page=5, 421.575pt x 597.19106p
+t>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 5>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page5 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=64, page=6, 421.575pt x 597.19106p
+t>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 6>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page6 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[3
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=88, page=7, 421.575pt x 597.19106p
+t>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 7>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page7 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=90, page=8, 421.575pt x 597.19106p
+t>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 8>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page8 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[4
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=111, page=9, 421.575pt x 597.19106
+pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 9>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page9 used o
+n input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=113, page=10, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 10>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page10 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[5
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=138, page=11, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 11>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page11 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=140, page=12, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 12>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page12 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[6
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=164, page=13, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 13>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page13 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=166, page=14, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 14>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page14 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[7
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=192, page=15, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 15>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page15 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=194, page=16, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 16>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page16 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[8
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=219, page=17, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 17>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page17 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=221, page=18, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 18>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page18 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[9
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=246, page=19, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 19>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page19 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=248, page=20, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 20>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page20 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[10
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=272, page=21, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 21>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page21 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=274, page=22, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 22>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page22 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[11
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf> <./input-pdfxup-temp-pdfxup-170208
+6017.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./input-pdfxup-temp-pdfxup-1702086017.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<input-pdfxup-temp-pdfxup-1702086017.pdf, id=303, page=23, 421.575pt x 597.1910
+6pt>
+File: input-pdfxup-temp-pdfxup-1702086017.pdf Graphic file (type pdf)
+<use input-pdfxup-temp-pdfxup-1702086017.pdf, page 23>
+Package pdftex.def Info: input-pdfxup-temp-pdfxup-1702086017.pdf , page23 used 
+on input line 342.
+(pdftex.def)             Requested size: 372.41722pt x 577.5623pt.
+[12
+
+ <./input-pdfxup-temp-pdfxup-1702086017.pdf>] (./temp-pdfxup-1702086017.aux) ) 
+) 
+Here is how much of TeX's memory you used:
+ 1864 strings out of 477985
+ 34097 string characters out of 5840058
+ 1851388 words of memory out of 5000000
+ 22098 multiletter control sequences out of 15000+600000
+ 512287 words of font info for 32 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 62i,11n,65p,277b,199s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on temp-pdfxup-1702086017.pdf (12 pages, 4377418 bytes).
+PDF statistics:
+ 324 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 254 words of extra memory for PDF output out of 10000 (max. 10000000)
+

@@ -6,12 +6,14 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/so
 RUN apt-get update && apt-get install google-chrome-stable -y \
     && apt-get dist-upgrade -yq
 
-RUN apt-get install -y texlive-extra-utils
+RUN apt-get install -y texlive-extra-utils chromium
 
 COPY . /app
 WORKDIR /app
 
 RUN npm install -g pnpm
+
+RUN node node_modules/puppeteer/install.js
 
 RUN node --version \
     && npm --version \

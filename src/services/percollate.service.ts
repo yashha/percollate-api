@@ -28,7 +28,7 @@ export class PercollateService {
 			JSON.stringify(urls) + JSON.stringify(options) + pagesPerSide,
 			uuidv5.URL,
 		)}.${method}`;
-		const file = path.resolve(basePath, filename);
+		let file = path.resolve(basePath, filename);
 		let result = null;
 
 		percollate.configure();
@@ -55,7 +55,7 @@ export class PercollateService {
 					...options,
 				});
 
-				//await this.convertPagesPerSide(file, pagesPerSide);
+				file = await this.convertPagesPerSide(file, pagesPerSide);
 
 				break;
 			case "epub":
@@ -97,7 +97,7 @@ export class PercollateService {
 		return { file };
 	}
 
-	async convertPagesPerSide(file: string, pages: number) {
+	async convertPagesPerSide(file: string, pages: number): Promise<string> {
 		const orientation: Record<number, string> = {
 			2: "landscape",
 			4: "portrait",
@@ -117,18 +117,21 @@ export class PercollateService {
 		console.log(orientation[pages]);
 		console.log(mode[pages]);
 		if (orientation[pages] && mode[pages]) {
-			const noLandscape = orientation[pages] === "portrait";
+			const landscape = orientation[pages] !== "portrait";
 			const nup = mode[pages];
-			await this.convertNup(file, nup, noLandscape);
+			return await this.convertNup(file, nup, landscape);
 		}
+
+		return '';
 	}
 
-	async convertNup(file: string, nup = "2x1", noLandscape = false) {
-		const noLandscapeAttribute = noLandscape ? "--no-landscape" : "";
-		const cmd = "pdfnup";
-		const args = ["---nup", file, noLandscapeAttribute, "--outfile", file];
+	async convertNup(file: string, nup = "2x1", landscape = false) {
+		const landscapeAttribute = landscape ? "-l" : "";
+		const cmd = "pdfxup";
+		const args = ["-fw", '0pt', "-nup", nup, "-o", file, landscapeAttribute, file];
+		console.log('execFile', cmd, args);
 		const { stdout, stderr } = await execFile(cmd, args);
-		console.log(stdout, nup);
+		console.log('execFile', 'cmd', args, stdout);
 		console.log(stderr);
 		return file;
 	}
