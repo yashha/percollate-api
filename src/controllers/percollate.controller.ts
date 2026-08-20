@@ -42,15 +42,21 @@ class PercollateController {
 		res: Response,
 		next: NextFunction,
 	) {
-		const { url, options, pagesperside } = req.query;
+		const { url, options, pagesperside, ...queryOptions } = req.query;
 
 		const parsedUrls: string[] = Array.isArray(url) ? url : [url];
+		const parsedOptions = {
+			...queryOptions,
+			...(options && typeof options === "object" && !Array.isArray(options)
+				? options
+				: {}),
+		} as Options;
 
 		const { file, title } = await percollateService.run(
 			parsedUrls,
 			req.params.method,
 			pagesperside,
-			options || {},
+			parsedOptions,
 		);
 		await this.handleRequest(file, title, req.params.method, res, req);
 	}

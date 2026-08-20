@@ -33,7 +33,8 @@ export class PercollateService {
 
 		percollate.configure();
 
-		options.author = "";
+		options.author = options.author || "";
+		options.css = options.css || "";
 
 		switch (method) {
 			case "pdf":
