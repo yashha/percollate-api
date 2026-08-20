@@ -27,6 +27,7 @@
   "dependencies": {
     "make-dir": "^4.0.0",
     "percollate": "^4.0.4",
+    "puppeteer": "^19.11.1",
     "uuid": "^9.0.1"
   }
 }

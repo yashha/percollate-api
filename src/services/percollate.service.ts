@@ -4,6 +4,7 @@ import path from "path";
 import util from "util";
 import makeDir from "make-dir";
 import * as percollate from "percollate";
+import puppeteer from "puppeteer";
 import { v5 as uuidv5 } from "uuid";
 import { Options } from "../controllers/percollate.controller.js";
 
@@ -36,7 +37,10 @@ export class PercollateService {
 		options.author = options.author || "";
 		options.css = options.css || "";
 
-		switch (method) {
+		const renderedUrls = await this.renderUrls(urls);
+
+		try {
+			switch (method) {
 			case "pdf":
 				options.css += `
           div > figure {
@@ -45,7 +49,7 @@ export class PercollateService {
             margin-left: 30px !important;
           }
         `;
-				result = await percollate.pdf(urls, {
+				result = await percollate.pdf(renderedUrls, {
 					output: file,
 					sandbox: false,
 					hyphenate: true,
@@ -60,7 +64,7 @@ export class PercollateService {
 
 				break;
 			case "epub":
-				result = await percollate.epub(urls, {
+				result = await percollate.epub(renderedUrls, {
 					output: file,
 					sandbox: false,
 					hyphenate: false,
@@ -78,7 +82,7 @@ export class PercollateService {
             margin: 2rem auto;
           }
         `;
-				result = await percollate.html(urls, {
+				result = await percollate.html(renderedUrls, {
 					output: file,
 					sandbox: false,
 					hyphenate: false,
@@ -89,6 +93,11 @@ export class PercollateService {
 					...options,
 				});
 				break;
+			}
+		} finally {
+			await Promise.all(
+				renderedUrls.map((renderedUrl) => fs.promises.unlink(renderedUrl)),
+			);
 		}
 
 		if (urls.length > 0 && result && result.items.length > 0) {
@@ -96,6 +105,58 @@ export class PercollateService {
 		}
 
 		return { file };
+	}
+
+	private async renderUrls(urls: string[]) {
+		const browser = await puppeteer.launch({
+			headless: true,
+			args: ["--no-sandbox"],
+			executablePath: fs.existsSync("/usr/bin/chromium")
+				? "/usr/bin/chromium"
+				: fs.existsSync("/usr/bin/chromium-browser")
+					? "/usr/bin/chromium-browser"
+					: undefined,
+		});
+		const renderedUrls: string[] = [];
+
+		try {
+			for (const url of urls) {
+				const page = await browser.newPage();
+				await page.goto(url, { waitUntil: "networkidle2" });
+				const html = await page.evaluate(() => {
+					const pageDocument = Reflect.get(globalThis, "document") as {
+						createElement: (tagName: string) => {
+							href: string;
+							innerHTML: string;
+						};
+						defaultView: { location: { href: string } };
+						head: { prepend: (element: unknown) => void };
+						body: {
+							innerHTML: string;
+							replaceChildren: (element: unknown) => void;
+						};
+						documentElement: { outerHTML: string };
+					};
+					const base = pageDocument.createElement("base");
+					base.href = pageDocument.defaultView.location.href;
+					pageDocument.head.prepend(base);
+					const article = pageDocument.createElement("article");
+					article.innerHTML = pageDocument.body.innerHTML;
+					pageDocument.body.replaceChildren(article);
+					return pageDocument.documentElement.outerHTML;
+				});
+				const renderedUrl = path.resolve(
+					basePath,
+					`${uuidv5(url, uuidv5.URL)}.html`,
+				);
+				await fs.promises.writeFile(renderedUrl, html);
+				renderedUrls.push(renderedUrl);
+				await page.close();
+			}
+			return renderedUrls;
+		} finally {
+			await browser.close();
+		}
 	}
 
 	async convertPagesPerSide(file: string, pages: number) {
