@@ -1,14 +1,11 @@
-import childProcess from "child_process";
 import fs from "fs";
 import path from "path";
-import util from "util";
 import makeDir from "make-dir";
+import { PDFDocument } from "pdf-lib";
 import * as percollate from "percollate";
 import puppeteer from "puppeteer";
 import { v5 as uuidv5 } from "uuid";
 import { Options } from "../controllers/percollate.controller.js";
-
-const execFile = util.promisify(childProcess.execFile);
 
 const basePath = new URL("../../cache", import.meta.url).pathname;
 
@@ -41,61 +38,61 @@ export class PercollateService {
 
 		try {
 			switch (method) {
-			case "pdf":
-				options.css += `
+				case "pdf":
+					options.css += `
           div > figure {
             width: 30%;
             float: right;
             margin-left: 30px !important;
           }
         `;
-				result = await percollate.pdf(renderedUrls, {
-					output: file,
-					sandbox: false,
-					hyphenate: true,
-					template: new URL(
-						"../../static/default-template.html",
-						import.meta.url,
-					).pathname,
-					...options,
-					url: urls,
-				});
+					result = await percollate.pdf(renderedUrls, {
+						output: file,
+						sandbox: false,
+						hyphenate: true,
+						template: new URL(
+							"../../static/default-template.html",
+							import.meta.url,
+						).pathname,
+						...options,
+						url: urls,
+					});
 
-				//await this.convertPagesPerSide(file, pagesPerSide);
+					await this.convertPagesPerSide(file, pagesPerSide);
 
-				break;
-			case "epub":
-				result = await percollate.epub(renderedUrls, {
-					output: file,
-					sandbox: false,
-					hyphenate: false,
-					template: new URL(
-						"../../static/default-template.html",
-						import.meta.url,
-					).pathname,
-					...options,
-					url: urls,
-				});
-				break;
-			case "html":
-				options.css += `
+					break;
+				case "epub":
+					result = await percollate.epub(renderedUrls, {
+						output: file,
+						sandbox: false,
+						hyphenate: false,
+						template: new URL(
+							"../../static/default-template.html",
+							import.meta.url,
+						).pathname,
+						...options,
+						url: urls,
+					});
+					break;
+				case "html":
+					options.css += `
           .article {
             max-width: 40rem;
             margin: 2rem auto;
           }
         `;
-				result = await percollate.html(renderedUrls, {
-					output: file,
-					sandbox: false,
-					hyphenate: false,
-					template: new URL(
-						"../../static/default-template.html",
-						import.meta.url,
-					).pathname,
-					...options,
-					url: urls,
-				});
-				break;
+					result = await percollate.html(renderedUrls, {
+						output: file,
+						sandbox: false,
+						hyphenate: false,
+						template: new URL(
+							"../../static/default-template.html",
+							import.meta.url,
+						).pathname,
+						...options,
+						url: urls,
+					});
+					break;
 			}
 		} finally {
 			await Promise.all(
@@ -117,8 +114,8 @@ export class PercollateService {
 			executablePath: fs.existsSync("/usr/bin/chromium")
 				? "/usr/bin/chromium"
 				: fs.existsSync("/usr/bin/chromium-browser")
-					? "/usr/bin/chromium-browser"
-					: undefined,
+				  ? "/usr/bin/chromium-browser"
+				  : undefined,
 		});
 		const renderedUrls: string[] = [];
 
@@ -163,38 +160,70 @@ export class PercollateService {
 	}
 
 	async convertPagesPerSide(file: string, pages: number) {
-		const orientation: Record<number, string> = {
-			2: "landscape",
-			4: "portrait",
-			// 6: "landscape",
-			// 9: "portrait",
-			// 16: "portrait",
+		const layouts: Record<number, { nup: string; noLandscape: boolean }> = {
+			2: { nup: "2x1", noLandscape: false },
+			4: { nup: "2x2", noLandscape: true },
 		};
 
-		const mode: Record<number, string> = {
-			2: "2x1",
-			4: "2x2",
-			// 6: "3x2",
-			// 9: "3x3",
-			// 16: "4x4",
-		};
-
-		console.log(orientation[pages]);
-		console.log(mode[pages]);
-		if (orientation[pages] && mode[pages]) {
-			const noLandscape = orientation[pages] === "portrait";
-			const nup = mode[pages];
-			await this.convertNup(file, nup, noLandscape);
+		const layout = layouts[pages];
+		if (layout) {
+			await this.convertNup(file, layout.nup, layout.noLandscape);
 		}
 	}
 
 	async convertNup(file: string, nup = "2x1", noLandscape = false) {
-		const noLandscapeAttribute = noLandscape ? "--no-landscape" : "";
-		const cmd = "pdfnup";
-		const args = ["---nup", file, noLandscapeAttribute, "--outfile", file];
-		const { stdout, stderr } = await execFile(cmd, args);
-		console.log(stdout, nup);
-		console.log(stderr);
+		const [columns, rows] = nup.split("x").map(Number);
+		if (
+			!Number.isInteger(columns) ||
+			!Number.isInteger(rows) ||
+			columns <= 0 ||
+			rows <= 0
+		) {
+			return file;
+		}
+
+		const sourceBytes = await fs.promises.readFile(file);
+		const sourcePdf = await PDFDocument.load(sourceBytes);
+		const targetPdf = await PDFDocument.create();
+		const sourcePages = sourcePdf.getPages();
+		if (sourcePages.length === 0) {
+			return file;
+		}
+
+		const firstPage = sourcePages[0];
+		const { width: pageWidth, height: pageHeight } = firstPage.getSize();
+		const useLandscape = nup === "2x1" && !noLandscape;
+		const sheetWidth = useLandscape ? pageHeight * columns : pageWidth * columns;
+		const sheetHeight = useLandscape ? pageWidth * rows : pageHeight * rows;
+		const pagesPerSheet = columns * rows;
+
+		for (let index = 0; index < sourcePages.length; index += pagesPerSheet) {
+			const sheet = targetPdf.addPage([sheetWidth, sheetHeight]);
+			const end = Math.min(index + pagesPerSheet, sourcePages.length);
+
+			for (let pageIndex = index; pageIndex < end; pageIndex++) {
+				const targetCell = pageIndex - index;
+				const sourcePage = sourcePages[pageIndex];
+				const sourceSize = sourcePage.getSize();
+				const col = targetCell % columns;
+				const row = Math.floor(targetCell / columns);
+				const x =
+					(sheetWidth - sourceSize.width * columns) / 2 + col * sourceSize.width;
+				const y =
+					(sheetHeight - sourceSize.height * rows) / 2 +
+					(rows - row - 1) * sourceSize.height;
+				const embeddedPage = await targetPdf.embedPage(sourcePage);
+				sheet.drawPage(embeddedPage, {
+					x,
+					y,
+					width: sourceSize.width,
+					height: sourceSize.height,
+				});
+			}
+		}
+
+		const outputBytes = await targetPdf.save();
+		await fs.promises.writeFile(file, outputBytes);
 		return file;
 	}
 

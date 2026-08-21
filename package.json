@@ -10,6 +10,7 @@
     "start": "npm run build && npm run serve",
     "build": "tsc",
     "serve": "node dist/index.js",
+    "test": "npm run build && node --test test/pdf-generation.test.js",
     "format": "npx @biomejs/biome format --write ./src",
     "lint": "npx @biomejs/biome lint ./src",
     "check": "npx @biomejs/biome check --apply ./src",
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "make-dir": "^4.0.0",
+    "pdf-lib": "^1.17.1",
     "percollate": "^4.0.4",
     "puppeteer": "^19.11.1",
     "uuid": "^9.0.1"
