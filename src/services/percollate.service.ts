@@ -58,6 +58,7 @@ export class PercollateService {
 						import.meta.url,
 					).pathname,
 					...options,
+					url: urls,
 				});
 
 				//await this.convertPagesPerSide(file, pagesPerSide);
@@ -73,6 +74,7 @@ export class PercollateService {
 						import.meta.url,
 					).pathname,
 					...options,
+					url: urls,
 				});
 				break;
 			case "html":
@@ -91,6 +93,7 @@ export class PercollateService {
 						import.meta.url,
 					).pathname,
 					...options,
+					url: urls,
 				});
 				break;
 			}
